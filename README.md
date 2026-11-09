@@ -37,6 +37,23 @@ Mix them in different combinations to discover six potions: Dream, Love, Growth,
 - Moving-cork timing minigame
 - Coin rewards and progress saved using localStorage
 
+## Screenshots
+
+### Brewing Station
+![Brewing Station](screenshots/main%20page.png)
+
+### Spellbook
+![Spellbook](screenshots/spellbook.png)
+
+### Choose Your Bottle
+![Bottle Selection](screenshots/choose-bottle.png)
+
+### Potion Pouring
+![Potion Pouring](screenshots/bottling.png)
+
+### Corking
+![Corking Minigame](screenshots/corking.png)
+
 ## Built With
 
 - React + Vite
