@@ -438,6 +438,7 @@ button  {
   left: 0;
   width: 100%;
   opacity: 0.85;
+  transition: height 0.05s linear;
 }
 
 .target-line {
@@ -493,4 +494,16 @@ button  {
     78% 100%,
     22% 100%
   );
+}
+
+.pouring-bottle.round .liquid-container {
+  position: absolute;
+  left: 5%;
+  width: 90%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  bottom: 21%;
+
+  border-radius: 50%;
+  overflow: hidden;
 }
