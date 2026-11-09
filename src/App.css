@@ -507,3 +507,141 @@ button  {
   border-radius: 50%;
   overflow: hidden;
 }
+
+.welcome-screen {
+  min-height: 100vh;
+  width: 100%;
+  background: #25172f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 20px;
+  box-sizing: border-box;
+  color: #fff0d7;
+}
+
+.welcome-card {
+  width: 100%;
+  max-width: 520px;
+  background: #382544;
+  border: 2px solid #9f7bb0;
+  border-radius: 18px;
+  padding: 36px 42px;
+  box-sizing: border-box;
+  text-align: center;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+}
+
+.welcome-stars {
+  color: #f9d77b;
+  font-size: 24px;
+  letter-spacing: 10px;
+  margin-bottom: 12px;
+}
+
+.welcome-card h1 {
+  color: #ffe5ad;
+  font-size: 48px;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.welcome-subtitle {
+  color: #e2c9ed;
+  font-size: 16px;
+  font-style: italic;
+  margin: 10px 0 20px;
+}
+
+.welcome-divider {
+  color: #f9d77b;
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+
+.welcome-card h2 {
+  color: #ffe5ad;
+  font-size: 26px;
+  margin: 0 0 24px;
+}
+
+.welcome-instructions {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  text-align: left;
+  margin: 0 auto;
+  max-width: 390px;
+}
+
+.welcome-step {
+  display: flex;
+  align-items: flex-start;
+}
+
+.welcome-step p {
+  margin: 0;
+  color: #f2e5f5;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.welcome-step strong {
+  display: block;
+  color: #ffe5ad;
+  font-size: 17px;
+  margin-bottom: 3px;
+}
+
+.start-brewing-button {
+  margin-top: 32px;
+  padding: 14px 38px;
+  background: #79538d;
+  border: 2px solid #f9d77b;
+  border-radius: 12px;
+  color: #fff0d7;
+  font-family: inherit;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.start-brewing-button:hover {
+  background: #9669a8;
+  transform: translateY(-2px);
+}
+
+.start-brewing-button:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 500px) {
+  .welcome-screen {
+    padding: 20px 12px;
+  }
+
+  .welcome-card {
+    padding: 28px 22px;
+  }
+
+  .welcome-card h1 {
+    font-size: 38px;
+  }
+
+  .welcome-card h2 {
+    font-size: 23px;
+  }
+
+  .welcome-step p {
+    font-size: 14px;
+  }
+
+  .welcome-step strong {
+    font-size: 16px;
+  }
+
+  .start-brewing-button {
+    font-size: 18px;
+    padding: 12px 28px;
+  }
+}

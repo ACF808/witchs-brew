@@ -17,7 +17,7 @@ function App() {
       return [];
     }
   });
-  const [gameScreen, setGameScreen] = useState("brewing");
+  const [gameScreen, setGameScreen] = useState("start");
   const [selectedBottle, setSelectedBottle] = useState(null);
   const [showSpellbook, setShowSpellbook] = useState(false);
   const [customerIndex, setCustomerIndex] = useState(() => {
@@ -101,6 +101,68 @@ function App() {
 
   return (
     <main className="game">
+      
+    {gameScreen === "start" && (
+      <div className="welcome-screen">
+        <div className="welcome-card">
+          <div className="welcome-stars">✦ ✧ ✦</div>
+
+          <h1>Witch's Brew</h1>
+          <p className="welcome-subtitle">
+            A cozy little potion shop
+          </p>
+
+          <div className="welcome-divider">✦</div>
+
+          <h2>How to Play</h2>
+
+          <div className="welcome-instructions">
+            <div className="welcome-step">
+              <p>
+                <strong>Read the order</strong>
+                Check which potion and bottle your customer wants!
+              </p>
+            </div>
+
+            <div className="welcome-step">
+              <p>
+                <strong>Brew your potion</strong>
+                Drag ingredients over the cauldron and scroll to pour.
+              </p>
+            </div>
+
+            <div className="welcome-step">
+              <p>
+                <strong>Discover recipes</strong>
+                Experiment with ingredients and check your spellbook!
+              </p>
+            </div>
+
+            <div className="welcome-step">
+              <p>
+                <strong>Bottle your potion</strong>
+                Choose a bottle, then hold to pour to the dotted line.
+              </p>
+            </div>
+
+            <div className="welcome-step">
+              <p>
+                <strong>Cork & serve</strong>
+                Time your cork drop and earn coins for completing orders!
+              </p>
+            </div>
+          </div>
+
+          <button
+            className="start-brewing-button"
+            onClick={() => setGameScreen("brewing")}
+          >
+            Start Brewing!
+          </button>
+        </div>
+      </div>
+    )}
+
       {gameScreen === "brewing" && (
         <BrewingStation
           selected={selected}
