@@ -4,6 +4,8 @@ A cozy little potion-making game where you run your own witchy potion shop, expe
 
 Made for **Hack Club Terra — Week 3: Spooky**.
 
+[Play Witch's Brew live here!](https://witchs-brew-jet.vercel.app)
+
 ## How to Play
 
 1. **Read your order!** Check the parchment to see which potion and bottle shape your customer wants.
