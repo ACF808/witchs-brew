@@ -1,16 +1,58 @@
-# React + Vite
+# ✨ Witch's Brew ✨
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A cozy little potion-making game where you run your own witchy potion shop, experiment with magical ingredients, and brew potions for customers!
 
-Currently, two official plugins are available:
+Made for **Hack Club Terra - Week 3: Spooky**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## How to Play
 
-## React Compiler
+1. **Read your order!** Check the parchment to see which potion and bottle shape your customer wants.
+2. **Brew a potion!** Drag ingredients over the cauldron and scroll to tilt the containers and pour them in.
+3. **Discover recipes!** Experiment with different ingredient combinations to unlock potions in your spellbook.
+4. **Choose a bottle!** Pick between a round or tall bottle.
+5. **Pour your potion!** Click and hold to fill the bottle, then release as close to the dotted target line as possible.
+6. **Serve your customer!** Complete orders to earn coins!
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Ingredients
 
-## Expanding the Oxlint configuration
+There are four magical ingredients to experiment with:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+- Moonwater
+- Mushrooms
+- Stardust
+- Rose Petals
+
+Mix them in different combinations to discover **six unique potions**!
+
+## Features
+
+- Hand-drawn artwork made in Clip Studio Paint
+- Drag-and-scroll ingredient pouring
+- Six discoverable potion recipes
+- Interactive spellbook
+- Customer orders with different potion and bottle requests
+- Two bottle shapes
+- Fill-to-the-line pouring minigame
+- Coin rewards and saved progress using localStorage
+
+## Built With
+
+- React + Vite
+- JavaScript
+- CSS
+- Clip Studio Paint
+- Python + Pillow (for cropping artwork)
+
+## Still Working On
+
+- Corking minigame
+- More pouring animations and visual effects
+- Final gameplay polish and bug fixes
+
+## About
+
+All the artwork was illustrated by me! I wanted to make a little cozy potion shop where the brewing process feels interactive, rather than just clicking buttons to combine ingredients.
+
+The pouring minigame was inspired by Google's bubble tea Doodle, and the rest of the game grew from there!
+
+Made with lots of potions, purple, and probably too much time spent adjusting CSS.
