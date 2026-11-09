@@ -10,6 +10,9 @@ export default function BrewingStation({
     onClear,
     onOpenSpellbook,
     onOpenBottle,
+    customer,
+    requestedPotion,
+    coins,
 }) {
     const sceneRef = useRef(null);
     const draggingRef = useRef(null);
@@ -135,6 +138,22 @@ export default function BrewingStation({
                 alt=""
             />
 
+            <div className="customer-order">
+                {customer ? (
+                    <>
+                        <div className="order-heading">Potion Order</div>
+                        <div className="order-customer">{customer.name}</div>
+                        <div className="order-potion">{requestedPotion?.name}</div>
+                        <div className="order-bottle">{customer.bottle} bottle</div>
+                        <div className="order-reqard">{customer.reward} coins</div>
+                    </>
+                ) : (
+                    <div className="order-heading">All orders complete!</div>
+                )}
+            </div>
+
+            <div className="coin-counter">Coins: {coins}</div>
+            
             <img
                 className="scene-layer"
                 src={`${ASSETS}/spellbook.png`}

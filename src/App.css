@@ -227,3 +227,49 @@ button  {
   font-size: clamp(11px, 1.1vw, 18px);
   pointer-events: none;
 }
+
+.customer-order {
+  position: absolute;
+  z-index: 6;
+  top: 3%;
+  left: 43%;
+  width: 24%;
+  height: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2%;
+  color: #51354b;
+  text-align: center;
+  pointer-events: none;
+  transform: rotate(1deg);
+}
+
+.order-heading {
+  font-size: clamp(14px, 1.8vw, 28px);
+  font-weight: bold;
+}
+
+.order-customer,
+.order-bottle,
+.order-reward {
+  font-size: clamp(12px, 1.15vw, 19px);
+}
+
+.order-potion {
+  font-size: clamp(14px, 1.5vw, 24px);
+  font-weight: bold;
+}
+
+.coin-counter {
+  position: absolute;
+  z-index: 7;
+  top: 4%;
+  right: 4%;
+  padding: 9px 15px;
+  background: #39234edb;
+  color: #ffe9a3;
+  border-radius: 12px;
+  font-size: clamp(11px, 1.1vw, 19px);
+}

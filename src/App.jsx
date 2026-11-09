@@ -1,14 +1,59 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ingredients, recipes } from "./data/recipes";
 import BrewingStation from "./components/BrewingStation";
+import { customers } from "./data/customers";
 import "./App.css";
 
 function App() {
   const [selected, setSelected] = useState([]);
   const [currentPotion, setCurrentPotion] = useState(null);
-  const [discovered, setDiscovered] = useState([]);
+  const [discovered, setDiscovered] = useState(() => {
+    try {
+      return JSON.parse(localStorage.getItem("witchs-brew-discovered")) || [];
+    } catch {
+      return [];
+    }
+  });
   const [showSpellbook, setShowSpellbook] = useState(false);
+  const [customerIndex, setCustomerIndex] = useState(() => {
+    return Number(localStorage.getItem("witchs-brew-customer")) || 0;
+  });
+  const [coins, setCoins] = useState(() => {
+    return Number(localStorage.getItem("witchs-brew-coins")) || 0;
+  });
+  const currentCustomer = customers[customerIndex] ?? null;
+  const requestedPotion = currentCustomer
+    ? recipes.find((recipe) => recipe.id === currentCustomer.potionId)
+    : null;
+  
+  useEffect(() => {
+    localStorage.setItem(
+      "witchs-brew-discovered",
+      JSON.stringify(discovered)
+    );
+  }, [discovered]);
 
+  useEffect(() => {
+    localStorage.setItem("witchs-brew-customer", String(customerIndex));
+  }, [customerIndex]);
+
+  useEffect(() => {
+    localStorage.setItem("witchs-brew-coins", String(coins));
+  }, [coins]);
+
+  function servePotion() {
+    if (!currentCustomer || !currentPotion) return;
+
+    if (currentPotion.id !== currentCustomer.potionId) {
+      alert("That's not the potion this customer ordered!");
+      return;
+    }
+
+    setCoins((previous) => previous + currentCustomer.reward);
+    setCustomerIndex((previous) => previous + 1);
+    resetCauldron();
+  }
+  
   function selectIngredient(ingredient) {
     if (selected.length >= 2) return;
 
@@ -47,7 +92,10 @@ function App() {
         onSelectIngredient={selectIngredient}
         onClear={resetCauldron}
         onOpenSpellbook={() => setShowSpellbook(true)}
-        onOpenBottle={() => alert("Bottling coming next!")}
+        customer={currentCustomer}
+        requestedPotion={requestedPotion}
+        coins={coins}
+        onOpenBottle={servePotion}
       />
 
       {showSpellbook && (
