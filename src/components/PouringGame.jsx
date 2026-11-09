@@ -128,7 +128,7 @@ export default function PouringGame({
                         Filled to {Math.round(fill)}% - target was {target.current}%!
                     </p>
                     <button onClick={retry}>Try Again</button>
-                    <button onClick={() => onComplete(getrating())}>
+                    <button onClick={() => onComplete(getRating())}>
                         Continue to Corking
                     </button>
                 </div>

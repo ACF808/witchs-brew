@@ -4,6 +4,7 @@ import BrewingStation from "./components/BrewingStation";
 import { customers } from "./data/customers";
 import BottleSelection from "./components/BottleSelection";
 import PouringGame from "./components/PouringGame";
+import CorkingGame from "./components/CorkingGame";
 import "./App.css";
 
 function App() {
@@ -130,6 +131,18 @@ function App() {
           onComplete={(rating) => {
             console.log("Pouring result:", rating);
             setGameScreen("corking");
+          }}
+        />
+      )}
+      {gameScreen === "corking" && currentPotion && (
+        <CorkingGame
+          potion={currentPotion}
+          bottleType={selectedBottle}
+          onComplete={(rating) => {
+            console.log("Corking result:", rating);
+            servePotion();
+            setGameScreen("brewing");
+            setSelectedBottle(null);
           }}
         />
       )}
