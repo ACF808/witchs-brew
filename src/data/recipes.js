@@ -1,8 +1,8 @@
 export const ingredients = [
-    {id: "moonwater", name: " moonwater", emoji: "💧"},
-    {id: "mushroom", name: " mushroom", emoji: "🍄"},
-    {id: "stardust", name: " stardust", emoji: "✨"},
-    {id: "rose", name: " moonwater", emoji: "🌹"},
+    {id: "moonwater", name: "moonwater", emoji: "💧"},
+    {id: "mushroom", name: "mushroom", emoji: "🍄"},
+    {id: "stardust", name: "stardust", emoji: "✨"},
+    {id: "rose", name: "rose petals", emoji: "🌹"},
 ];
 
 export const recipes = [
