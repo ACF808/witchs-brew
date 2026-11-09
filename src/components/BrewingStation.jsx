@@ -168,7 +168,7 @@ export default function BrewingStation({
 
             <img
                 className="scene-layer"
-                src={`${ASSETS}/bottling/bottle-round.png`}
+                src={`${ASSETS}/bottle.png`}
                 alt=""
             />
 

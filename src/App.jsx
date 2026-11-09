@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { ingredients, recipes } from "./data/recipes";
 import BrewingStation from "./components/BrewingStation";
 import { customers } from "./data/customers";
+import BottleSelection from "./components/BottleSelection";
+import PouringGame from "./components/PouringGame";
 import "./App.css";
 
 function App() {
@@ -14,6 +16,8 @@ function App() {
       return [];
     }
   });
+  const [gameScreen, setGameScreen] = useState("brewing");
+  const [selectedBottle, setSelectedBottle] = useState(null);
   const [showSpellbook, setShowSpellbook] = useState(false);
   const [customerIndex, setCustomerIndex] = useState(() => {
     return Number(localStorage.getItem("witchs-brew-customer")) || 0;
@@ -84,20 +88,51 @@ function App() {
     setCurrentPotion(null);
   }
 
+  function openBottling() {
+    if (!currentPotion || !currentCustomer) return;
+    setGameScreen("selection");
+  }
+
+  function chooseBottle(type) {
+    setSelectedBottle(type);
+    setGameScreen("pouring");
+  }
+
   return (
     <main className="game">
-      <BrewingStation
-        selected={selected}
-        currentPotion={currentPotion}
-        onSelectIngredient={selectIngredient}
-        onClear={resetCauldron}
-        onOpenSpellbook={() => setShowSpellbook(true)}
-        customer={currentCustomer}
-        requestedPotion={requestedPotion}
-        coins={coins}
-        onOpenBottle={servePotion}
-      />
-
+      {gameScreen === "brewing" && (
+        <BrewingStation
+          selected={selected}
+          currentPotion={currentPotion}
+          onSelectIngredient={selectIngredient}
+          onClear={resetCauldron}
+          onOpenSpellbook={() => setShowSpellbook(true)}
+          customer={currentCustomer}
+          requestedPotion={requestedPotion}
+          coins={coins}
+          onOpenBottle={openBottling}
+        />
+      )}
+      {gameScreen === "selection" && currentCustomer && currentPotion && (
+        <BottleSelection
+          customer={currentCustomer}
+          potion={currentPotion}
+          onSelect={chooseBottle}
+          onBack={() => setGameScreen("brewing")}
+        />
+      )}
+      {gameScreen === "pouring" && currentPotion && (
+        <PouringGame
+          key={`${customerIndex}-${selectedBottle}`}
+          potion={currentPotion}
+          bottleType={selectedBottle}
+          onBack={() => setGameScreen("selection")}
+          onComplete={(rating) => {
+            console.log("Pouring result:", rating);
+            setGameScreen("corking");
+          }}
+        />
+      )}
       {showSpellbook && (
         <div
           className="modal-backdrop"
